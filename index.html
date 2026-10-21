@@ -169,6 +169,25 @@ html{background:#eaf1ff}#pushup{background:linear-gradient(180deg,#f8fbff,#e8f0f
 .pick{width:100%;border-collapse:collapse;font-size:13px}.pick th{text-align:left;font-size:11px;letter-spacing:.04em;color:var(--mut);padding:6px 8px;position:sticky;top:0;background:#fff;white-space:nowrap}.pick td{padding:7px 8px;border-top:1px solid var(--bd);white-space:nowrap}.pick tbody tr{cursor:pointer}.pick tbody tr:hover td{background:var(--acs)}.pick tbody tr.sel td{background:var(--acs);font-weight:600}.pick input[type=radio]{width:auto;margin:0}
 .pwrap{max-height:240px;overflow:auto;border:1px solid var(--bd);border-radius:12px;margin-top:6px}.stephd{margin:14px 0 4px;font-size:12px;font-weight:800;letter-spacing:.06em;color:#00489a}
 .qgrid.qsm{gap:14px}.qgrid.qsm .sl{outline:1px dashed #9aa;break-after:auto;page-break-after:auto}
+#amenu{width:284px;padding:0;gap:0;overflow:hidden;border-radius:18px;top:50px}
+#amenu .amh{display:flex;gap:14px;align-items:center;padding:18px 18px 14px;background:linear-gradient(135deg,#eef2ff,#f6f8ff);border-bottom:1px solid var(--bd)}
+#amenu .amav{position:relative;display:block;width:64px;height:64px;flex:none;cursor:pointer;margin:0}
+#amenu .amavc{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#8b97f5,#5563e6);color:#fff;display:grid;place-items:center;font-weight:700;font-size:26px;background-size:cover;background-position:center;box-shadow:0 4px 14px #5563e644;border:3px solid #fff}
+.avatar.ph,#amenu .amavc.ph{color:transparent;background-size:cover;background-position:center}
+#amenu .amcam{position:absolute;right:-2px;bottom:-2px;width:24px;height:24px;border-radius:50%;background:#1e3a8a;color:#fff;display:grid;place-items:center;border:2px solid #fff}
+#amenu .amcam svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+#amenu .amid{min-width:0;display:flex;flex-direction:column;gap:2px}
+#amenu .amid b{font-size:16px;color:#0f172a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#amenu .amid span{font-size:13px;color:var(--mut);overflow:hidden;text-overflow:ellipsis}
+#amenu .amrole{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.03em;padding:2px 9px;border-radius:99px;align-self:flex-start;margin-top:4px}
+#amenu .amrole.adm{background:#dbeafe;color:#1e40af}#amenu .amrole.usr{background:#e2e8f0;color:#334155}
+#amenu .amph{display:flex;gap:8px;padding:10px 18px 4px}
+#amenu .amph button{flex:1;padding:7px 10px;font-size:13px;border-radius:10px;border:1px solid var(--bd);background:#fff;text-align:center}
+#amenu .amph button[hidden]{display:none}
+#amenu .amlist{padding:8px 10px 10px;display:flex;flex-direction:column;gap:2px}
+#amenu .ami{display:flex;align-items:center;width:100%;padding:11px 12px;border:0;background:transparent;border-radius:10px;font-size:14.5px;font-weight:600;color:#1e293b;text-align:left;cursor:pointer}
+#amenu .ami:hover{background:#eef2ff;translate:none}#amenu .ami.out{color:#b91c1c}#amenu .ami.out:hover{background:#fef2f2}
+#amenu button:hover:not(:disabled){translate:none}
 </style>
 </head>
 <body class="locked"><script>try{var s0=localStorage.getItem("eat-session")||sessionStorage.getItem("eat-session");document.body.classList.add(s0?"resume":"boot");window.__t0=Date.now()}catch(e){}</script><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -221,7 +240,12 @@ html{background:#eaf1ff}#pushup{background:linear-gradient(180deg,#f8fbff,#e8f0f
 <div class="dt">No internet</div><div class="dsub">Signing you in…</div><small>ERR_INTERNET_DISCONNECTED</small></div></div>
 <div class="app"><header class="top"><div class="brand"><span class="logo lg" id="logo"></span><input type="file" id="lgf" accept="image/*" hidden><div class="wm"><b>EAT</b><small>ASSET TRACKER</small></div></div>
 <nav class="tabs"><button id="td" class="on" onclick="tab('d')"><svg class="ic"><use href="#i-dash"/></svg>Dashboard</button><button id="ta" onclick="tab('a')"><svg class="ic"><use href="#i-box"/></svg>Assets</button><button id="to" onclick="tab('o')"><svg class="ic"><use href="#i-stock"/></svg>Stock</button><button id="tk" onclick="tab('k')"><svg class="ic"><use href="#i-ticket"/></svg>Tickets</button><button id="ts" onclick="tab('s')"><svg class="ic"><use href="#i-wrench"/></svg>Service</button><button id="tt" onclick="tab('t')"><svg class="ic"><use href="#i-swap"/></svg>Transfers</button><div class="rwrap"><button id="tmaster" onclick="toggleMM(event)"><svg class="ic"><use href="#i-users"/></svg>MASTER <span class="car">▾</span></button><div class="rmenu" id="mmenu" hidden><button id="te" onclick="tabM('e')"><span>Employees</span><small>Manage employee master data.</small></button><button id="tu" onclick="tabM('u')" hidden><span>Users</span><small>Manage application users/accounts.</small></button><button id="ty" onclick="tabM('y')"><span>Asset Master</span><small>Manage available asset types/categories.</small></button></div></div><div class="rwrap"><button id="tr" onclick="toggleRM(event)"><svg class="ic"><use href="#i-chart"/></svg>Reports <span class="car">▾</span></button><div class="rmenu" id="rmenu" hidden></div></div></nav>
-<div class="tools"><button class="scanb" onclick="openScan()" title="Scan an asset QR code"><svg class="ic"><use href="#i-qr"/></svg><span>Scan QR</span></button><span class="sync" id="st">Connecting…</span><span class="avatar" id="avatar" onclick="toggleAM(event)" role="button" tabindex="0" style="cursor:pointer" title="Account">E</span><div class="amenu" id="amenu" hidden><button onclick="pwOpen()">Change password</button><button onclick="doLogout()"><svg class="ic"><use href="#i-logout"/></svg>Logout</button><button onclick="closeMenus()">Cancel</button></div></div></header>
+<div class="tools"><button class="scanb" onclick="openScan()" title="Scan an asset QR code"><svg class="ic"><use href="#i-qr"/></svg><span>Scan QR</span></button><span class="sync" id="st">Connecting…</span><span class="avatar" id="avatar" onclick="toggleAM(event)" role="button" tabindex="0" style="cursor:pointer" title="Account">E</span><div class="amenu" id="amenu" hidden>
+<div class="amh"><label class="amav" title="Change photo"><span id="am_av" class="amavc">A</span><input type="file" id="am_file" accept="image/*" hidden onchange="avPick(event)"><i class="amcam"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></i></label>
+<div class="amid"><b id="am_name"></b><span id="am_user"></span><em id="am_role" class="amrole"></em></div></div>
+<div class="amph"><button type="button" onclick="document.getElementById('am_file').click()">Upload photo</button><button type="button" id="am_rm" onclick="avRemove()">Remove</button></div>
+<div class="amlist"><button type="button" class="ami" onclick="pwOpen()"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Change password</button>
+<button type="button" class="ami out" onclick="doLogout()"><svg class="ic"><use href="#i-logout"/></svg>Logout</button></div></div></div></header>
 <main>
 <h1 id="ptitle">Assets</h1>
 <div id="pa">
@@ -772,7 +796,20 @@ function closeMenus(){$("rmenu").hidden=true;$("amenu").hidden=true;$("mmenu").h
 function toggleMM(e){const h=$("mmenu").hidden;closeMenus();$("mmenu").hidden=!h;if(h)placeMenu($("mmenu"),$("tmaster"))}
 function tabM(k){closeMenus();tab(k)}
 function toggleRM(e){const h=$("rmenu").hidden;closeMenus();$("rmenu").hidden=!h;if(h)placeMenu($("rmenu"),$("tr"))}
-function toggleAM(e){const h=$("amenu").hidden;closeMenus();$("amenu").hidden=!h}
+function toggleAM(e){const h=$("amenu").hidden;closeMenus();renderAvatar();$("amenu").hidden=!h}
+const avInit=()=>String((me&&(me.name||me.username))||"?").trim()[0].toUpperCase();
+function renderAvatar(){if(!me)return;const img=me.avatar||"",set=(el)=>{el.style.backgroundImage=img?`url("${img}")`:"";el.classList.toggle("ph",!!img);el.textContent=img?"":avInit()};
+set($("avatar"));set($("am_av"));$("avatar").title=me.name+" ("+me.role+")";
+$("am_name").textContent=me.name||me.username;$("am_user").textContent="@"+me.username;
+const r=$("am_role");r.textContent=me.role==="Admin"?"Administrator":(me.ro?"User · view only":"User");r.className="amrole "+(me.role==="Admin"?"adm":"usr");
+$("am_rm").hidden=!img}
+async function avSave(v){try{await SB.rest("profiles?id=eq."+me.id,{method:"PATCH",prefer:"return=minimal",body:{avatar:v}});me.avatar=v||"";renderAvatar()}
+catch(e){const m=String(e&&e.message||"");toast(/avatar|column|schema/i.test(m)?"Profile photos need one more database step. Run the third SQL file (eat_schema_part3.sql) in Supabase, then try again.":lgErr(e))}}
+function avPick(ev){const f=ev.target.files[0];ev.target.value="";if(!f)return;
+if(!/^image\//.test(f.type)){toast("Please choose a picture (PNG or JPG).");return}
+const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const S=192,c=document.createElement("canvas");c.width=c.height=S;const x=c.getContext("2d"),m=Math.min(im.width,im.height),sx=(im.width-m)/2,sy=(im.height-m)/2;
+x.fillStyle="#fff";x.fillRect(0,0,S,S);x.drawImage(im,sx,sy,m,m,0,0,S,S);avSave(c.toDataURL("image/jpeg",.85))};im.onerror=()=>toast("Could not read that picture. Try a PNG or JPG.");im.src=r.result};r.readAsDataURL(f)}
+async function avRemove(){if(await ask("Remove your profile photo?"))avSave(null)}
 document.addEventListener("click",e=>{if(!e.target.closest(".rwrap")){$("rmenu").hidden=true;$("mmenu").hidden=true}if(!e.target.closest(".tools"))$("amenu").hidden=true});
 REPORTS.push({id:"bd",name:"Branch/Department Asset Report",bd:1,head:["Type","Branch / Department",...BHD,"How assigned"],rows:()=>[...byGroup("branch").map(r=>["Branch",...r]),...byGroup("dept").map(r=>["Department",...r])]},
 {id:"st",name:"Service/Ticket Report",head:["Type","Reference","Date","Asset","Subject / work done","Category / type","Priority","Status","Technician / vendor","Due / next due"],rows:()=>[...TK.map(t=>["Ticket",t.no,(t.created||"").slice(0,10),t.asset?aname(t.asset):"",t.subject,t.cat,t.priority,t.status,nm(t.assignee),t.due]),...S.map(x=>["Service","Service record",x.date,aname(x.asset),x.notes||x.type,x.type,"",x.status,x.vendor,x.next])]});
@@ -1011,7 +1048,7 @@ LG=[Object.assign({},LG[0],{id:"logo",img:u})];persist();renderLogo();toast("Log
 const LSS="eat-session";let uRdy=false,me=null,lm="in",NOUSERS=false,SYNC=false;
 const toEmail=u=>String(u).trim().toLowerCase()+SB_DOM;
 const lmsg=t=>{$("lg_msg").textContent=t};
-const profMe=p=>({id:p.id,username:p.username,name:p.name||p.username,role:p.role,perm:p.perm,ro:!!p.read_only,active:p.active!==false});
+const profMe=p=>({avatar:p.avatar||"",id:p.id,username:p.username,name:p.name||p.username,role:p.role,perm:p.perm,ro:!!p.read_only,active:p.active!==false});
 async function loadProfile(){const r=await SB.rest("profiles?id=eq."+SB.uid+"&select=*");return r&&r[0]?profMe(r[0]):null}
 function lgErr(e){const m=String((e&&e.message)||e||"");
 if(/invalid login|invalid_credentials/i.test(m)||(e&&e.code==="invalid_credentials"))return"Incorrect username or password.";
@@ -1053,7 +1090,7 @@ e=>{if(e&&(e.status===401||/JWT|expired/i.test(e.message||""))){toast("Your sess
 function stopSync(){SBD.stop();SYNC=false;DB=null;A=[];E=[];S=[];T=[];TK=[];LG=[];MS=[];US=[];AT=defaultTypes();Object.keys(last).forEach(k=>last[k]={});_sy=0;try{render();renderE();renderS();renderT();renderK();renderLogo()}catch(e){}}
 function signedIn(x,quick){me=x;RO=isRO();try{localStorage.setItem(LSS,x.username)}catch(e){}
 $("lg_pw").value=$("lg_pw2").value="";startSync();quick?showApp():playDino(showApp)}
-function showApp(){document.body.classList.remove("locked");const f=applyPerms();tab(f?f[0]:"a");if(PEND)tryPend();$("avatar").textContent=(me.name||me.username)[0].toUpperCase();$("avatar").title=me.name+" ("+me.role+")";window.scrollTo(0,0);setTimeout(()=>document.body.classList.remove("resume"),Math.max(0,900-(Date.now()-(window.__t0||0))))}
+function showApp(){document.body.classList.remove("locked");const f=applyPerms();tab(f?f[0]:"a");if(PEND)tryPend();renderAvatar();window.scrollTo(0,0);setTimeout(()=>document.body.classList.remove("resume"),Math.max(0,900-(Date.now()-(window.__t0||0))))}
 function signOut(){SB.signOutRemote();SB.clear();stopSync();try{localStorage.removeItem(LSS);sessionStorage.removeItem(LSS)}catch(e){}me=null;RO=false;lm="in";$("lg_user").value="";document.body.classList.add("locked");lmsg("");(async()=>{try{NOUSERS=!(await SB.rpcAnon("eat_has_users"))}catch(e){}loginRefresh()})()}
 const DINO=["..........XXXXXXXX..",".........XXXXXXXXXX.",".........XX.XXXXXXXX",".........XXXXXXXXXXX",".........XXXXXXXXXXX",".........XXXXXXX....",".........XXXXXXXXX..","X........XXXXXX.....","X.......XXXXXXX.....","XX.....XXXXXXXXXXX..","XXX...XXXXXXXXXX.XX.","XXXXXXXXXXXXXXXX....",".XXXXXXXXXXXXXXX....","..XXXXXXXXXXXXX.....","...XXXXXXXXXXX......","....XXXXXXXXX.......",".....XXX...XXX......"],LA1=[".....XX.............",".....XXX............"],LB1=["..........XX........","..........XXX......."];
 const dr=(rows,y0)=>rows.map((r,y)=>[...r].map((c,x)=>c==="X"?`<rect x="${x}" y="${y+y0}" width="1" height="1"/>`:"").join("")).join("");
